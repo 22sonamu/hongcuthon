@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         pageItemList.add(PageItem(R.color.colorOrange, R.drawable.ic_pager_item_1, "하루질문에 답해주세요"))
-        pageItemList.add(PageItem(R.color.colorBlue, R.drawable.ic_pager_item_2, "나만의 캐릭터를 키워보세요!"))
-        pageItemList.add(PageItem(R.color.colorWhite, R.drawable.ic_pager_item_3, "과거의 나를 열람해 보세요!"))
+        pageItemList.add(PageItem(R.color.colorWhite, R.drawable.ic_pager_item_2, "나만의 캐릭터를 키워보세요"))
+        pageItemList.add(PageItem(R.color.colorOrange, R.drawable.ic_pager_item_3, "과거의 나를 열람해 보세요"))
 
         myIntroPagerRecyclerAdapter = MyIntroPagerRecyclerAdapter(pageItemList)
 
@@ -48,26 +48,18 @@ class MainActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN)
         }
 
-        // Hide the status bar.
+
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-        // Remember that you should never show the action bar if the
-        // status bar is hidden, so hide that too if necessary.
+
         actionBar?.hide()
 
-        // 뷰페이저에 설정
+
         my_intro_view_pager.apply {
 
             adapter = myIntroPagerRecyclerAdapter
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
-//            this.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-//
-//                override fun onPageSelected(position: Int) {
-//                    super.onPageSelected(position)
-////                    supportActionBar?.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.colorBlue)))
-//                }
-//
-//            })
+
 
             dots_indicator.setViewPager2(this)
         }
